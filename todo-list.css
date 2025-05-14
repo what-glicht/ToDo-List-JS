@@ -1,0 +1,68 @@
+/* todo-list.css - Stili personalizzati per ToDo List & Task Manager */
+
+/* Impostazioni di base */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+/* Stile della card */
+.card {
+  border: none;
+  border-radius: 8px;
+}
+
+/* Istruzioni */
+.alert {
+  font-size: 0.95rem;
+}
+
+/* Stile della lista dei task */
+#taskList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+#taskList li:last-child {
+  border-bottom: none;
+}
+
+/* Contenitore con le informazioni del task */
+.task-info {
+  flex: 1;
+}
+
+.task-info .task-text {
+  font-size: 1rem;
+}
+
+.task-info .task-date {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-left: 10px;
+}
+
+.task-info .task-priority {
+  margin-left: 10px;
+  color: #fd7e14;
+  font-size: 1.2rem;
+}
+
+/* Contenitore delle azioni (checkbox e bottone Delete) */
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.task-actions button {
+  margin-left: 10px;
+}
