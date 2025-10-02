@@ -10,9 +10,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadFileBtn = document.getElementById("loadFile");
   const saveFileBtn = document.getElementById("saveFile");
 
+  // Dark mode toggle
+  const darkModeToggle = document.getElementById("darkModeToggle");
+
   // Chiave per Local Storage e array globale dei task
   const STORAGE_KEY = "todoTasks";
+  const DARK_MODE_KEY = "todoDarkMode";
   let tasks = [];
+
+  // ========= DARK MODE FUNCTIONS =========
+
+  function loadDarkModePreference() {
+    const isDarkMode = localStorage.getItem(DARK_MODE_KEY) === "true";
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+      darkModeToggle.textContent = "☀️ Light Mode";
+    }
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    const isDarkMode = document.body.classList.contains("dark-mode");
+    localStorage.setItem(DARK_MODE_KEY, isDarkMode);
+    darkModeToggle.textContent = isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode";
+  }
+
+  darkModeToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    toggleDarkMode();
+  });
 
   // ========= FUNZIONI DI STORAGE =========
 
@@ -46,9 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    tasks.forEach(task => {
+    tasks.forEach((task) => {
       const li = document.createElement("li");
-      li.className = "list-group-item d-flex justify-content-between align-items-center";
+      li.className =
+        "list-group-item d-flex justify-content-between align-items-center";
       li.dataset.id = task.id;
 
       // Contenitore informazioni del task
@@ -77,7 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (task.priority) {
         const prioritySpan = document.createElement("span");
         prioritySpan.className = "task-priority";
-        prioritySpan.textContent = " " + "★".repeat(parseInt(task.priority, 10));
+        prioritySpan.textContent =
+          " " + "★".repeat(parseInt(task.priority, 10));
         infoDiv.appendChild(prioritySpan);
       }
 
@@ -129,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       text: text,
       date: date || "",
       priority: priority || "1",
-      completed: false
+      completed: false,
     };
     tasks.push(newTask);
     saveTasksToStorage();
@@ -138,14 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Rimuove un task dato il suo ID
   function removeTask(taskId) {
-    tasks = tasks.filter(task => task.id !== taskId);
+    tasks = tasks.filter((task) => task.id !== taskId);
     saveTasksToStorage();
     renderTasks();
   }
 
   // Alterna lo stato di completamento del task
   function toggleTaskCompletion(taskId) {
-    tasks = tasks.map(task => {
+    tasks = tasks.map((task) => {
       if (task.id === taskId) {
         return { ...task, completed: !task.completed };
       }
@@ -159,7 +187,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Inizializza il Modal di Edit (utilizzando il Bootstrap Modal)
   const editTaskModalElement = document.getElementById("editTaskModal");
-  const editTaskModal = new bootstrap.Modal(editTaskModalElement, { backdrop: "static" });
+  const editTaskModal = new bootstrap.Modal(editTaskModalElement, {
+    backdrop: "static",
+  });
 
   // Apre il modal di modifica, precompilando i campi
   function openEditModal(task) {
@@ -182,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Task description cannot be empty.");
       return;
     }
-    tasks = tasks.map(task => {
+    tasks = tasks.map((task) => {
       if (task.id === id) {
         return { ...task, text: newText, date: newDate, priority: newPriority };
       }
@@ -264,6 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ========= INIZIALIZZAZIONE =========
 
+  loadDarkModePreference();
   loadTasksFromStorage();
   renderTasks();
 });
