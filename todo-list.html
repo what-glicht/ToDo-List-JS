@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS from CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="todo-list.css">
+  <link rel="stylesheet" href="./todo-list.css"/>
 </head>
 <body>
   <!-- Navbar with File menu for import/export -->
@@ -19,6 +18,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarFile">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="darkModeToggle">🌙 Dark Mode</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="fileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               File
@@ -40,7 +42,7 @@
       <div class="card-body">
         <!-- User instructions -->
         <div class="alert alert-info" role="alert">
-          <strong>Instructions:</strong> Fill in the task description, optionally select a due date and choose a priority (1 to 3 stars). Then click <strong>Add Task</strong> to insert a new task. You can mark tasks as completed, edit them, or delete them. Use the “File” menu to export/import tasks as JSON.
+          <strong>Instructions:</strong> Fill in the task description, optionally select a due date and choose a priority (1 to 3 stars). Then click <strong>Add Task</strong> to insert a new task. You can mark tasks as completed, edit them, or delete them. Use the "File" menu to export/import tasks as JSON.
         </div>
         <!-- Task entry form -->
         <form id="taskForm">
@@ -117,7 +119,6 @@
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JavaScript -->
-  <script src="todo-list.js"></script>
+  <script src="./todo-list.js"></script>
 </body>
 </html>
