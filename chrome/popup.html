@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header>
+      <h1>ToDo</h1>
+    </header>
+
+    <form id="taskForm" class="task-form" aria-label="Add task form">
+      <input id="taskInput" type="text" placeholder="Add a task..." autocomplete="off" required>
+      <div>
+        <input id="taskDate" type="date" class="small-input" aria-label="Due date">
+      <select id="taskPriority" class="small-input" aria-label="Priority">
+        <option value="1">★</option>
+        <option value="2">★★</option>
+        <option value="3">★★★</option>
+      </select>
+      <button id="addBtn" type="submit" title="Add">Add Task</button>
+      </div>
+    </form>
+
+    <div class="controls-row">
+      <div class="left-controls">
+        <button id="exportBtn" class="btn small" title="Export JSON">Export</button>
+        <button id="importBtn" class="btn small" title="Import JSON">Import</button>
+        <input id="fileInput" type="file" accept="application/json" style="display:none">
+      </div>
+      <div class="right-controls">
+        <button id="clearCompleted" class="btn small">Clear Completed</button>
+        <span id="count" class="count">0</span>
+      </div>
+    </div>
+
+    <ul id="taskList" class="task-list" aria-live="polite">
+      <!-- tasks render here -->
+    </ul>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal" role="dialog" aria-hidden="true">
+      <div class="modal-content" role="document">
+        <h3>Edit Task</h3>
+        <form id="editForm">
+          <input id="editTaskId" type="hidden">
+          <input id="editTaskInput" type="text" required>
+          <input id="editTaskDate" type="date" class="small-input">
+          <select id="editTaskPriority" class="small-input">
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+          </select>
+          <div class="modal-actions">
+            <button type="button" id="closeModal" class="btn small">Cancel</button>
+            <button type="submit" class="btn small">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End Modal -->
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
