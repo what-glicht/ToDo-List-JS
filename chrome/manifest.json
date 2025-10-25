@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "ToDo List",
+    "version": "1.0",
+    "description": "Compact ToDo list popup — add, edit, complete and delete tasks (sync storage).",
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "ToDo List"
+    },
+    "permissions": [
+        "storage"
+    ]
+}

@@ -1,0 +1,175 @@
+/* popup.css - compact styles for Chrome extension popup */
+:root {
+  --bg: #ffffff;
+  --muted: #6c757d;
+  --accent: #0d6efd;
+  --danger: #dc3545;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: #111;
+}
+.popup-container {
+  width: 360px;
+  max-width: 360px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 6px;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+.task-form > * {
+  width: 100%;
+}
+.task-form input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.small-input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  height: 36px;
+}
+.task-form button {
+  width: auto;
+  height: 36px;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+.task-list {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+  max-height: 300px;
+  overflow: auto;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.task-left input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+.task-text {
+  font-size: 0.95rem;
+}
+.task-text.completed {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+.task-actions {
+  display: flex;
+  gap: 6px;
+}
+.btn.small {
+  background: #f1f1f1;
+  border: 1px solid #e1e1e1;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.count {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-left: 8px;
+}
+.task-actions button {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+.task-actions button.delete {
+  color: var(--danger);
+}
+/* small scrollbar styling */
+.task-list::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.task-list::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 8px;
+}
+
+/* controls row */
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.controls-row .left-controls {
+  display: flex;
+  gap: 6px;
+}
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+}
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+.modal-content {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  width: 320px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+.modal-content h3 {
+  margin: 0 0 8px 0;
+}
+.modal-content input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
