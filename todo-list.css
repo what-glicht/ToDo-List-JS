@@ -66,3 +66,45 @@ h1 {
 .task-actions button {
   margin-left: 10px;
 }
+
+.nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+  color: #495057;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: #e9ecef;
+  color: #007bff;
+}
+
+.nav-tabs .nav-link.active {
+  color: #007bff;
+  background-color: transparent;
+  border-color: #007bff;
+  border-bottom-color: #007bff;
+}
+
+/* Completed Tasks Styling */
+#completedTaskList .task-text {
+  opacity: 0.7;
+}
+
+#completedTaskList .task-date {
+  opacity: 0.6;
+}
+
+#completedTaskList .task-priority {
+  opacity: 0.6;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
